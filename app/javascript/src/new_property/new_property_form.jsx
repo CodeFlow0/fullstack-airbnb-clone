@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+
+console.log('new_property_form.jsx is loaded');
 
 const NewPropertyForm = () => {
   const [name, setName] = useState('');
@@ -19,12 +21,23 @@ const NewPropertyForm = () => {
     }
 
     try {
-      const response = await axios.post('/properties', formData, {
+      // const response = await axios.post('/properties', formData, {
+      //   headers: {
+      //     'Content-Type': 'multipart/form-data',
+      //   },
+      // });
+      // console.log(response.data);
+
+      // Suggestion to use fetch instead of axios
+      const response = await fetch('/properties', {
+        method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Accept': 'application/json',
         },
       });
-      console.log(response.data);
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
       console.error(error);
     }

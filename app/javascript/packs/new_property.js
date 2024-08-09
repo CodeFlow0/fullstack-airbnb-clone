@@ -1,1 +1,1 @@
-import '@src/property';
+import '@src/new_property';
