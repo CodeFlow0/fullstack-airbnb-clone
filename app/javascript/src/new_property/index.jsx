@@ -1,7 +1,6 @@
-// app/javascript/packs/index.jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NewPropertyForm from '../src/new_property/new_property';
+import NewPropertyForm from './new_property_form';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM Content Loaded'); // Debugging line
