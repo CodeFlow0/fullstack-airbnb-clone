@@ -14,20 +14,21 @@ module Api
 
       render 'api/properties/show', status: :ok
     end
-  end
 
-  def create
-    @property = Property.new(property_params)
+    def create
+      @property = Property.new(property_params)
       if @property.save
         render json: @property, status: :created
       else
-        render json: @property.errors, status: :unproccessable_entity
+        render json: @property.errors, status: :unprocessable_entity
       end
-  end
+    end
 
-  private
+    private
 
-  def property_params
-    params.require(:property).permit(:name, :description, :price, images: [])
+    def property_params
+      params.require(:property).permit(:title, :description, :city, :country, :property_type, :price_per_night,
+      :max_guests, :bedrooms, :beds, :baths, images: [])
+    end
   end
 end
